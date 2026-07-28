@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tesla-inspired CSS Variables */
+:root {
+  /* Light Theme */
+  --tesla-white: #ffffff;
+  --tesla-black: #000000;
+  --tesla-red: #cc0000;
+  --tesla-blue: #1976d2;
+  --tesla-gray-50: #f8fafc;
+  --tesla-gray-100: #f1f5f9;
+  --tesla-gray-200: #e2e8f0;
+  --tesla-gray-300: #cbd5e1;
+  --tesla-gray-400: #94a3b8;
+  --tesla-gray-500: #64748b;
+  --tesla-gray-600: #475569;
+  --tesla-gray-700: #334155;
+  --tesla-gray-800: #1e293b;
+  --tesla-gray-900: #0f172a;
+  
+  /* Theme Variables */
+  --background: var(--tesla-white);
+  --foreground: var(--tesla-gray-900);
+  --card: var(--tesla-white);
+  --card-foreground: var(--tesla-gray-900);
+  --popover: var(--tesla-white);
+  --popover-foreground: var(--tesla-gray-900);
+  --primary: var(--tesla-black);
+  --primary-foreground: var(--tesla-white);
+  --secondary: var(--tesla-gray-100);
+  --secondary-foreground: var(--tesla-gray-900);
+  --muted: var(--tesla-gray-100);
+  --muted-foreground: var(--tesla-gray-500);
+  --accent: var(--tesla-blue);
+  --accent-foreground: var(--tesla-white);
+  --destructive: var(--tesla-red);
+  --destructive-foreground: var(--tesla-white);
+  --border: var(--tesla-gray-200);
+  --input: var(--tesla-gray-200);
+  --ring: var(--tesla-gray-300);
+  --radius: 8px;
+  
+  /* Tesla Animation Variables */
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.25s ease;
+  --transition-slow: 0.35s ease;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  /* Dark Theme */
+  --background: var(--tesla-gray-900);
+  --foreground: var(--tesla-white);
+  --card: var(--tesla-gray-800);
+  --card-foreground: var(--tesla-white);
+  --popover: var(--tesla-gray-800);
+  --popover-foreground: var(--tesla-white);
+  --primary: var(--tesla-white);
+  --primary-foreground: var(--tesla-black);
+  --secondary: var(--tesla-gray-700);
+  --secondary-foreground: var(--tesla-white);
+  --muted: var(--tesla-gray-700);
+  --muted-foreground: var(--tesla-gray-400);
+  --accent: var(--tesla-blue);
+  --accent-foreground: var(--tesla-white);
+  --destructive: #dc2626;
+  --destructive-foreground: var(--tesla-white);
+  --border: var(--tesla-gray-700);
+  --input: var(--tesla-gray-700);
+  --ring: var(--tesla-gray-600);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--secondary);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.theme-toggle:hover {
+  background: var(--muted);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.theme-icon {
+  transition: all var(--transition-medium);
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(15deg);
+}
+
+/* Tesla-inspired Components */
+.tesla-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-medium);
+}
+
+.tesla-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.tesla-button {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.tesla-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.tesla-button:active {
+  transform: translateY(0);
+}
+
+.tesla-button-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+}
+
+.tesla-input {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--foreground);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.tesla-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+  }
+}
+
+/* Loading Animation */
+@keyframes teslaSpinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.tesla-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  animation: teslaSpinner 1s linear infinite;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
